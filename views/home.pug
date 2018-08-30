@@ -1,7 +1,16 @@
 extends layout
 
 block content
-	h2.col-12 Vue Markup Goes Here 
 	div.col-12
-		ul(v-for="value in results")
-			li {{value.title}}
+		form.form-group( @submit.prevent="submitStock") 
+			div.form-group
+					label Stock Ticker: 
+					input.form-control(v-bind="stock", type="text", v-model="stock", placeholder="Enter Stock Ticker")
+			button(type="submit", class="btn btn-primary " ) Submit Stock
+	div.col-12(v-if="companyInfo")
+		ul
+			li Company Name: {{companyInfo.companyName}}
+			li Industry: {{companyInfo.industry}}
+			li Website: {{companyInfo.website}}
+	div.col-12 List of Stocks Searched: 
+		span(v-for="value in stocksSearched") {{value}} , 

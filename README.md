@@ -1,10 +1,9 @@
-# Node + Express + Vue + Bootstrap Boiler Plate 
-Super simple boiler plate for creating single page vue applications. 
+# Stock Analysis 
+Simple app to analyze certain stocks. 
 
-# Included Modules: 
-- Vue 
-- Axios 
-- Bootstrap 4.0 
+# Stock data 
+Stock data is coming from IEX trading. Below is link to documentation. 
+- https://iextrading.com/developer/docs/ 
 
 # Usage
 - The easiest way to start is to clone the repository. 
@@ -27,3 +26,5 @@ nodemon
 # Site will then run on port 3000. Site can be accessed from the following url. 
 http://localhost:3000/ 
 ``` 
+
+
