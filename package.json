@@ -1,0 +1,19 @@
+{
+  "name": "Node Bolier Plate ",
+  "version": "1.0.1",
+  "description": "Node Bolier Plate",
+  "author": "Danny Mecca",
+  "private": true,
+  "scripts": {
+    "start": "node ./app"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "connect-mongo": "^2.0.1",
+    "express": "^4.13.4",
+    "express-session": "^1.15.6",
+    "nodemailer": "^4.6.8",
+    "pug": "^2.0.0-beta2"
+  },
+  "license": "MIT"
+}

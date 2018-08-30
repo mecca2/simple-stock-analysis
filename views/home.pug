@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	h2.col-12 Vue Markup Goes Here 
+	div.col-12
+		ul(v-for="value in results")
+			li {{value.title}}
