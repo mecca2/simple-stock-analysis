@@ -23,4 +23,7 @@ node app.js
 
 # If nodemon is installed you can run by just using the following command. 
 nodemon 
+
+# Site will then run on port 3000. Site can be accessed from the following url. 
+http://localhost:3000/ 
 ``` 
