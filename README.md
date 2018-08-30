@@ -9,7 +9,7 @@ Stock data is coming from IEX trading. Below is link to documentation.
 - The easiest way to start is to clone the repository. 
 ```bash
 # Get the latest snapshot
-git clone https://github.com/MeccaProduction/simple-node-boilerplate.git myproject
+git clone https://github.com/mecca2/simple-stock-analysis myproject
 
 # Change directory
 cd myproject
