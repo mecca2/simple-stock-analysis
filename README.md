@@ -28,3 +28,10 @@ http://localhost:3000/
 ``` 
 
 
+# To Do 
+- Currently using chart js want to move to am charts 
+	- https://www.amcharts.com/stock-chart/ 
+- Update so user can select time interval 
+- Calculate additional stats on stocks: 
+	- Number of high / low days in a year 
+	- How stock compares to peers in industry (High / low percentile)
