@@ -7,7 +7,7 @@ block content
 					label Stock Ticker: 
 					input.form-control(v-bind="stock", type="text", v-model="stock", placeholder="Enter Stock Ticker")
 			button(type="submit", class="btn btn-primary " ) Submit Stock
-	div.col-12 List of Stocks Searched: 
+	div.col-12(v-if="stocksSearched.length > 1") List of Stocks Searched: 
 		span {{displaySearchedStocks}}
 	div.col-12(v-if="error") Stock symbol "{{notFoundStock}}" not found. Please try to search again.
 	div.col-12(v-else)
