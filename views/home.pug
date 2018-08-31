@@ -17,3 +17,4 @@ block content
 				li Industry: {{companyInfo.industry}}
 				li Website: {{companyInfo.website}}
 				li Current Price : {{formatPrice(results.price)}}
+			<line-chart v-bind:stock="stock" v-bind:chartdata="stockYearlyChart" v-bind:chartlabel="stockYearlyChartDates"></line-chart>

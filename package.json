@@ -13,7 +13,8 @@
     "express": "^4.13.4",
     "express-session": "^1.15.6",
     "nodemailer": "^4.6.8",
-    "pug": "^2.0.0-beta2"
+    "pug": "^2.0.0-beta2",
+    "vue-chartjs": "^3.4.0"
   },
   "license": "MIT"
 }
