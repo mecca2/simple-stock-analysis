@@ -8,8 +8,9 @@ Vue.component('line-chart', {
         label: this.stock,
         backgroundColor: '#f87979',
         data: this.chartdata
-      }]
-    }, { responsive: true, maintainAspectRatio: false })
+      }],
+      
+    }, { responsive: true, maintainAspectRatio: false , elements: { point: { radius: 0 } }})
   }
 
 })
