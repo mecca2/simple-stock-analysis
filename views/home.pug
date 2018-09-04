@@ -17,5 +17,5 @@ block content
 				li Industry: {{companyInfo.industry}}
 				li Website: {{companyInfo.website}}
 				li Current Price : {{formatPrice(results.price)}}
-			btn.btn.btn-primary(v-on:click="switchtoDaily()") Change to Daily Charge
+			btn.btn.btn-primary(v-on:click="switchtoDaily()") Change to Daily Chart
 			<line-chart v-bind:stock="stock" v-bind:chartdata="stockYearlyChart" v-bind:chartlabel="stockYearlyChartDates"></line-chart>

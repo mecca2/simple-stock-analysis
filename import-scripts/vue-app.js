@@ -20,8 +20,6 @@ Vue.component('line-chart', {
   }, 
   watch: {
     chartdata: function() {
-      //this.destroy();
-      //this.renderChart(this.data, this.options);
       this.renderLineChart();
     }
   }
@@ -61,6 +59,7 @@ const vm = new Vue({
     submitStock: function() {
       var self = this;
       self.apiRequestComplete = false;
+      console.log('test '); 
       axios.get(this.apiEndPoint + '/stock/' + this.stock + '/company')
         .then(response => {
           if (self.stocksSearched.indexOf(self.stock) == -1) {
@@ -68,6 +67,11 @@ const vm = new Vue({
           }
           self.companyInfo = response.data;
           self.error = false;
+
+          if (!self.error) {
+            self.getStockCurrentPrice();
+            self.getStockYearlyChart('1y');
+          }
         })
         .catch(function(error) {
           self.notFoundStock = self.stock;
@@ -75,10 +79,7 @@ const vm = new Vue({
           console.log(self.notFoundStock);
         });
       // if no error then stock is found run rest of api requests 
-      if (!self.error) {
-        self.getStockCurrentPrice();
-        self.getStockYearlyChart('1y');
-      }
+      
 
     },
     getStockCurrentPrice: function() {
@@ -123,6 +124,7 @@ const vm = new Vue({
           self.stockYearlyChartDates = data2;
           console.log(self.stockYearlyChart); 
           self.apiRequestComplete = true;
+          self.error = false;
         })
         .catch(function(error) {
           self.notFoundStock = self.stock;
