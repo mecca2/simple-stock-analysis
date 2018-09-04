@@ -1,11 +1,11 @@
 # Stock Analysis 
 Simple app to analyze certain stocks. 
 
-# Stock data 
+## Stock data 
 Stock data is coming from IEX trading. Below is link to documentation. 
 - https://iextrading.com/developer/docs/ 
 
-# Usage
+## Usage
 - The easiest way to start is to clone the repository. 
 ```bash
 # Get the latest snapshot
@@ -27,12 +27,13 @@ nodemon
 http://localhost:3000/ 
 ``` 
 
-# Screenshot: 
+## Screenshot: 
 - Example request for stock data on appl. 
+
 ![Screenshot](screenshot.png)
 
 
-# To Do 
+## To Do 
 - Currently using chart js want to move to am charts 
 	- https://www.amcharts.com/stock-chart/ 
 - Update so user can select time interval 
