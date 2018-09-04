@@ -27,6 +27,10 @@ nodemon
 http://localhost:3000/ 
 ``` 
 
+# Screenshot: 
+- Example request for stock data on appl. 
+	- ![Screenshot](screenshot.png)
+
 
 # To Do 
 - Currently using chart js want to move to am charts 
