@@ -2,15 +2,28 @@ Vue.component('line-chart', {
   extends: VueChartJs.Line,
   props: ['stock', 'chartdata', 'chartlabel'],
   mounted() {
-    this.renderChart({
-      labels: this.chartlabel,
-      datasets: [{
-        label: this.stock,
-        backgroundColor: '#f87979',
-        data: this.chartdata
-      }],
-      
-    }, { responsive: true, maintainAspectRatio: false , elements: { point: { radius: 0 } }})
+    this.renderLineChart(); 
+  },  
+  methods: {
+    renderLineChart: function (){
+      var self = this; 
+      this.renderChart({
+        labels: self.chartlabel,
+        datasets: [{
+          label: self.stock,
+          backgroundColor: '#f87979',
+          data: self.chartdata
+        }],
+        
+      }, { responsive: true, maintainAspectRatio: false , elements: { point: { radius: 0 } }})
+    }
+  }, 
+  watch: {
+    chartdata: function() {
+      //this.destroy();
+      //this.renderChart(this.data, this.options);
+      this.renderLineChart();
+    }
   }
 
 })
@@ -64,7 +77,7 @@ const vm = new Vue({
       // if no error then stock is found run rest of api requests 
       if (!self.error) {
         self.getStockCurrentPrice();
-        self.getStockYearlyChart();
+        self.getStockYearlyChart('1y');
       }
 
     },
@@ -82,27 +95,39 @@ const vm = new Vue({
           console.log(self.notFoundStock);
         });
     },
-    getStockYearlyChart: function() {
+    switchtoDaily : function(){
+      this.getStockYearlyChart('1d'); 
+    },
+    getStockYearlyChart: function(range) {
       var self = this;
-      axios.get(this.apiEndPoint + '/stock/' + this.stock + '/chart/1y')
+      axios.get(this.apiEndPoint + '/stock/' + this.stock + '/chart/' + range)
         .then(response => {
           var temp = response.data;
-          data = temp.map(function(e) {
-            return e.close;
-          });
-          data2 = temp.map(function(e) {
-            return e.date;
-          });
+          if(range == '1y'){
+            data = temp.map(function(e) {
+              return e.close;
+            });
+            data2 = temp.map(function(e) {
+              return e.date;
+            });
+          }else{
+            data = temp.map(function(e) {
+              return e.marketAverage;
+            });
+            data2 = temp.map(function(e) {
+              return e.minute;
+            });
+          }
+          
           self.stockYearlyChart = data;
           self.stockYearlyChartDates = data2;
-
-          console.log(self.stockYearlyChartDates);
+          console.log(self.stockYearlyChart); 
           self.apiRequestComplete = true;
         })
         .catch(function(error) {
           self.notFoundStock = self.stock;
           self.error = true;
-          console.log(self.notFoundStock);
+          
         });
     },
     formatPrice(value) {
